@@ -2,8 +2,42 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Todo {
+  """ID do todo"""
+  id: Int!
+
+  """Descrição do todo"""
+  description: String!
+
+  """Se o todo foi concluido"""
+  done: Boolean!
+}
+
 type Query {
   """Olá Mundo é o que retorno"""
   hello: String!
+
+  """Retorna um numero aleatorio entre 0 e 100"""
   randomNumber: Float!
+
+  """Retorna um numero inteiro de 0 a 10"""
+  randomFromZeroTo(to: Int): Int!
+  todo(id: Int!): Todo!
+}
+
+type Mutation {
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+  removeTodo(id: Int!): Todo!
+}
+
+input CreateTodoInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateTodoInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
 }
