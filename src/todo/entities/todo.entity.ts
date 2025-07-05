@@ -9,5 +9,5 @@ export class Todo {
   description: string;
 
   @Field(() => Boolean, { description: 'Se o todo foi concluido' })
-  done: Boolean = false;
+  done: boolean = false;
 }

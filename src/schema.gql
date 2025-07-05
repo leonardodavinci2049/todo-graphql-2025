@@ -2,6 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Item {
+  id: Int!
+  name: String!
+  description: String!
+  price: Float!
+  createdAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Todo {
   """ID do todo"""
   id: Int!
@@ -22,6 +35,9 @@ type Query {
 
   """Retorna um numero inteiro de 0 a 10"""
   randomFromZeroTo(to: Int): Int!
+
+  """Busca um item pelo ID"""
+  findItem(id: Int!): Item!
   todos: [Todo!]!
   todo(id: Int!): Todo!
 }
@@ -29,16 +45,26 @@ type Query {
 type Mutation {
   createTodo(createTodoInput: CreateTodoInput!): Todo!
   updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
-  removeTodo(id: Int!): Todo!
+  removeTodo(id: Int!): Boolean!
 }
 
 input CreateTodoInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """"""
+  id: Float!
+
+  """Descrição do todo"""
+  description: String!
+
+  """Se o todo foi concluido"""
+  done: Boolean
 }
 
 input UpdateTodoInput {
-  """Example field (placeholder)"""
-  exampleField: Int
   id: Int!
+
+  """Descrição do todo"""
+  description: String
+
+  """Se o todo foi concluido"""
+  done: Boolean
 }
