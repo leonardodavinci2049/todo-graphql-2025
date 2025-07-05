@@ -22,6 +22,7 @@ type Query {
 
   """Retorna um numero inteiro de 0 a 10"""
   randomFromZeroTo(to: Int): Int!
+  todos: [Todo!]!
   todo(id: Int!): Todo!
 }
 

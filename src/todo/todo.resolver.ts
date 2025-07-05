@@ -13,8 +13,8 @@ export class TodoResolver {
     return this.todoService.create(createTodoInput);
   }
 
-  @Query(() => [Todo], { name: 'todo' })
-  findAll() {
+  @Query(() => [Todo], { name: 'todos' })
+  findAll(): Todo[] {
     return this.todoService.findAll();
   }
 
