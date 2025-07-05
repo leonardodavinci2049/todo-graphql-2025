@@ -1,0 +1,9 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  """Olá Mundo é o que retorno"""
+  hello: String!
+  randomNumber: Float!
+}
