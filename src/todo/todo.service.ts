@@ -13,6 +13,18 @@ export class TodoService {
     { id: 4, description: 'Piedra del Tiempo', done: false },
   ];
 
+  get totalTodos() {
+    return this.todos.length;
+  }
+
+  get pendingTodos() {
+    return this.todos.filter((todo) => todo.done === false).length;
+  }
+
+  get completedTodos() {
+    return this.todos.filter((todo) => todo.done === true).length;
+  }
+
   create(createTodoInput: CreateTodoInput): Todo {
     const newTodo: Todo = {
       id: this.todos.length + 1,
