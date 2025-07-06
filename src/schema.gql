@@ -38,7 +38,7 @@ type Query {
 
   """Busca um item pelo ID"""
   findItem(id: Int!): Item!
-  todos: [Todo!]!
+  todos(status: Boolean): [Todo!]!
   todo(id: Int!): Todo!
 }
 
