@@ -2,25 +2,15 @@ import { Injectable } from '@nestjs/common';
 
 import { Todo } from './entities/todo.entity';
 import { CreateTodoInput, UpdateTodoInput } from './dto/inputs';
+import { StatusArgs } from './dto/args/status.args';
 
 @Injectable()
 export class TodoService {
   private todos: Todo[] = [
-    {
-      id: 1,
-      description: 'Todo 1',
-      done: false,
-    },
-    {
-      id: 2,
-      description: 'Todo 2',
-      done: true,
-    },
-    {
-      id: 3,
-      description: 'Todo 3',
-      done: false,
-    },
+    { id: 1, description: 'Piedra del Alma', done: false },
+    { id: 2, description: 'Piedra del Espacio', done: true },
+    { id: 3, description: 'Piedra del Poder', done: false },
+    { id: 4, description: 'Piedra del Tiempo', done: false },
   ];
 
   create(createTodoInput: CreateTodoInput): Todo {
@@ -31,10 +21,15 @@ export class TodoService {
     };
 
     this.todos.push(newTodo);
+
     return newTodo;
   }
 
-  findAll(): Todo[] {
+  findAll(statusArgs: StatusArgs): Todo[] {
+    const { status } = statusArgs;
+    if (status !== undefined)
+      return this.todos.filter((todo) => todo.done === status);
+
     return this.todos;
   }
 
