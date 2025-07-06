@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTodoInput } from './dto/create-todo.input';
-import { UpdateTodoInput } from './dto/update-todo.input';
+
 import { Todo } from './entities/todo.entity';
+import { CreateTodoInput, UpdateTodoInput } from './dto/inputs';
 
 @Injectable()
 export class TodoService {

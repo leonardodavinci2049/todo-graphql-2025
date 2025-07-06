@@ -43,13 +43,13 @@ type Query {
 }
 
 type Mutation {
-  createTodo(createTodoInput: CreateTodoInput!): Todo!
+  createTodo1(createTodoInput: CreateTodoInput!): Todo!
   updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
   removeTodo(id: Int!): Boolean!
 }
 
 input CreateTodoInput {
-  """"""
+  """id do todo"""
   id: Float!
 
   """Descrição do todo"""
@@ -60,7 +60,8 @@ input CreateTodoInput {
 }
 
 input UpdateTodoInput {
-  id: Int!
+  """id do todo"""
+  id: Float!
 
   """Descrição do todo"""
   description: String
